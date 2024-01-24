@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: "BakerHughes" 
+      POSTGRES_PASSWORD: "BakerHughes"
+      POSTGRES_DB: "BakerHughes"
+    ports:
+      - "5432:5432" 
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+    restart: always
